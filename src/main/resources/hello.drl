@@ -1,0 +1,6 @@
+rule 'hello'
+when
+    $name: String()
+then
+    System.out.println("Hello new one 5= " + $name);
+end

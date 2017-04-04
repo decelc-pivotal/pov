@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.omg.org/bpmn20"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_nameItem" structureRef="String" />
+  <process processType="Private" isExecutable="true" id="hello" name="hello" tns:packageName="org.jbpm" tns:version="1.0" >
+
+    <!-- process variables -->
+    <property id="name" itemSubjectRef="_nameItem"/>
+
+    <!-- nodes -->
+    <startEvent id="processStartEvent" name=""  isInterrupting="true">
+    </startEvent>
+    <scriptTask id="_0A45E45C-4A0A-4B07-8294-77D83C03192D" name="Say Hello Script" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Hello World from process 10, " +  name + "!");</script>
+    </scriptTask>
+    <endEvent id="_6B40DCEA-5374-46E7-9839-8F74DBDDBB13" name="" />
+
+    <!-- connections -->
+    <sequenceFlow id="processStartEvent-_0A45E45C-4A0A-4B07-8294-77D83C03192D" sourceRef="processStartEvent" targetRef="_0A45E45C-4A0A-4B07-8294-77D83C03192D" />
+    <sequenceFlow id="_0A45E45C-4A0A-4B07-8294-77D83C03192D-_6B40DCEA-5374-46E7-9839-8F74DBDDBB13" sourceRef="_0A45E45C-4A0A-4B07-8294-77D83C03192D" targetRef="_6B40DCEA-5374-46E7-9839-8F74DBDDBB13" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="hello" >
+      <bpmndi:BPMNShape bpmnElement="processStartEvent" >
+        <dc:Bounds x="0" y="0" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_0A45E45C-4A0A-4B07-8294-77D83C03192D" >
+        <dc:Bounds x="212" y="139" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6B40DCEA-5374-46E7-9839-8F74DBDDBB13" >
+        <dc:Bounds x="411" y="124" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="processStartEvent-_0A45E45C-4A0A-4B07-8294-77D83C03192D" >
+        <di:waypoint x="24" y="24" />
+        <di:waypoint x="252" y="163" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_0A45E45C-4A0A-4B07-8294-77D83C03192D-_6B40DCEA-5374-46E7-9839-8F74DBDDBB13" >
+        <di:waypoint x="252" y="163" />
+        <di:waypoint x="435" y="148" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
